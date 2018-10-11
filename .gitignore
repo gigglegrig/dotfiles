@@ -1,0 +1,10 @@
+/*
+!.gitignore
+!.vimrc
+!.bashrc
+!.bash_login
+!.bash_profile
+!.gitconfig
+!/.vim
+.vim/.netrwhist
+!.vimrc_background
