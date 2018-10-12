@@ -29,3 +29,6 @@ function attcon {
 
 set -o vi
 
+# ctrl+L set to clear screen
+bind -m vi-insert "\C-l":clear-screen
+

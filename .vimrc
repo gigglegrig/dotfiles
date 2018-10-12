@@ -40,7 +40,7 @@ if filereadable(expand("~/.vimrc_background"))
 endif
 
 " set to system clipboard
-"set clipboard=unnamed
+set clipboard=unnamed
 
 " NERDTree
 nmap <F5> :NERDTreeToggle<cr>
