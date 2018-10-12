@@ -8,6 +8,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'majutsushi/tagbar'
 
 " all Plugins to be added before this line.
 call vundle#end()
@@ -32,6 +34,8 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set ignorecase
+set smartcase
 
 "Bash16
 if filereadable(expand("~/.vimrc_background"))
@@ -43,11 +47,19 @@ endif
 set clipboard=unnamed
 
 " NERDTree
-nmap <F5> :NERDTreeToggle<cr>
+nmap <F5> :NERDTreeToggle<cr> 
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
 
 " Change cursor shape between insert and normal mode in iTerm2.app
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
+
+" vim-Powerline
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set laststatus=2
 
