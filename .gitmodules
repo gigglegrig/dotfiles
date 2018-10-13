@@ -1,3 +1,6 @@
 [submodule ".vim/tagbar"]
 	path = .vim/tagbar
 	url = /Users/frank/.vim/bundle/tagbar/
+[submodule "Vundle.vim"]
+	path = Vundle.vim
+	url = /Users/frank/.vim/bundle/Vundle.vim
