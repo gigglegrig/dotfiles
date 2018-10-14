@@ -7,7 +7,7 @@
 !.bash_profile
 !.gitconfig
 !/.vim/
-!/.vim/*
-!/.vim/**/*
+#!/.vim/*
+#!/.vim/**/*
 .vim/.netrwhist
 !.vimrc_background
