@@ -31,4 +31,6 @@ set -o vi
 
 bind -x '"\C-l": clear; ls'
 
+alias vi=vim
+
 
