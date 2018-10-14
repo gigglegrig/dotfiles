@@ -6,6 +6,7 @@
 !.bash_login
 !.bash_profile
 !.gitconfig
+!/.config
 !/.vim/
 #!/.vim/*
 #!/.vim/**/*
