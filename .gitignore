@@ -12,3 +12,4 @@
 #!/.vim/**/*
 .vim/.netrwhist
 !.vimrc_background
+!.vim_update
