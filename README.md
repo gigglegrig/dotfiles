@@ -2,7 +2,7 @@ steps:
 - update vim to the newest version:
 ---------------------
 ```bash
-yum install ncurses-devel
+yum install -y ncurses-devel unzip
 wget https://github.com/vim/vim/archive/master.zip
 unzip master.zip
 cd vim-master
