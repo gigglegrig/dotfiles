@@ -8,10 +8,11 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'Lokaltog/vim-powerline'
 Plugin 'majutsushi/tagbar'
 Plugin 'sjl/vitality.vim'
 Plugin 'w0rp/ale'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " all Plugins to be added before this line.
 call vundle#end()
@@ -73,12 +74,7 @@ nmap <F5> :NERDTreeToggle<cr>
 nmap <F8> :TagbarToggle<CR>
 
 
-" Change cursor shape between insert and normal mode in iTerm2.app
-"if $TERM_PROGRAM =~"iTerm"
-"    let &t_SI ="\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-"    let &t_EI ="\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-"endif
-"
+" Change cursor shape
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -87,10 +83,12 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" vim-Powerline
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set laststatus=2
+" vim-Airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2  "永远显示状态栏
+let g:airline_powerline_fonts = 1  " 支持 powerline 字体
+let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
+
 
 ""ALE plugin
 " turn sign column always on
@@ -109,8 +107,8 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "<Leader>d show error detail
-nmap <Leader>d :ALEDetail<CR>
-nmap <F7> ::ALEToggle<CR>
+nmap <F6> :ALEDetail<CR>
+nmap <F7> :ALEToggle<CR>
 " run lint only on saving a file
 " let g:ale_lint_on_text_changed = 'never'
 " dont run lint on opening a file
