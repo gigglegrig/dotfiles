@@ -74,6 +74,9 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set smartcase
+" set typo :X to :x
+cnoreabbrev <expr> X (getcmdtype() is# ':' && getcmdline() is# 'X') ? 'x' : 'X'
+
 
 "Bash16
 if filereadable(expand("~/.vimrc_background"))
