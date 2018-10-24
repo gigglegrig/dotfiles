@@ -30,7 +30,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 "turn off cached choice
 let g:ycm_cache_omnifunc=0
 "syntax autoocmplete
-let g:ycm_seed_identifiers_with_syntax=1	
+let g:ycm_seed_identifiers_with_syntax=1
 "works in comments
 let g:ycm_complete_in_comments = 1
 "works in strings
@@ -74,6 +74,7 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set smartcase
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ %{ALEGetStatusLine()}
 " set typo :X to :x
 cnoreabbrev <expr> X (getcmdtype() is# ':' && getcmdline() is# 'X') ? 'x' : 'X'
 
@@ -103,13 +104,18 @@ else
 endif
 
 " vim-Airline
-let g:airline#extensions#tabline#enabled = 1
 set laststatus=2  "永远显示状态栏
 let g:airline_powerline_fonts = 1  " 支持 powerline 字体
 let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
-
+let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 ""ALE plugin
+"theme
+let g:airline_theme='dark'
+" airline integration
+let g:airline#extensions#ale#enabled = 1
 " turn sign column always on
 let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
@@ -122,7 +128,11 @@ let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"shortcut
+
+let g:ale_list_window_size = 20
+
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 "<Leader>d show error detail
