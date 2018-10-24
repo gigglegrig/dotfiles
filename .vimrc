@@ -104,16 +104,15 @@ else
 endif
 
 " vim-Airline
-set laststatus=2  "永远显示状态栏
-let g:airline_powerline_fonts = 1  " 支持 powerline 字体
-let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
+set laststatus=2  " always show status bar
+let g:airline_powerline_fonts = 1  " support powerline font  
+let g:airline#extensions#tabline#enabled = 1 " show buffer and tabline 
 let g:airline_skip_empty_sections = 1
 let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
 
 ""ALE plugin
 "theme
-let g:airline_theme='dark'
+let g:airline_theme='angr'
 " airline integration
 let g:airline#extensions#ale#enabled = 1
 " turn sign column always on
