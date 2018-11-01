@@ -33,4 +33,6 @@ bind -x '"\C-l": clear; ls'
 
 alias vi=vim
 
-
+function cdl {
+    builtin cd "$@" && ls -F
+    }

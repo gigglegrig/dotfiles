@@ -23,6 +23,8 @@ filetype plugin indent on
 " YCM prompt color
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
+"jump to definition/declaration
+nnoremap <F2> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "collect from comment and string
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 "start from 2nd char
@@ -56,28 +58,27 @@ let g:ycm_semantic_triggers =  {
   \   'erlang' : [':'],
   \ }
 ""YCM finished
-
+set splitbelow
 set nocompatible
 set mouse=a
-:set mousemodel=extend
+set mousemodel=extend
 set number
 syntax on
 set backspace=indent,eol,start
 set hlsearch
-set expandtab
+set noexpandtab
 set gcr=a:blinkon0
 set showmode
 set autoindent
 set smartindent
 set tabstop=4
 set shiftwidth=4
-set expandtab
 set ignorecase
 set smartcase
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ %{ALEGetStatusLine()}
 " set typo :X to :x
 cnoreabbrev <expr> X (getcmdtype() is# ':' && getcmdline() is# 'X') ? 'x' : 'X'
-
+cnoreabbrev <expr> Q (getcmdtype() is# ':' && getcmdline() is# 'Q') ? 'q' : 'Q'
 
 "Bash16
 if filereadable(expand("~/.vimrc_background"))
