@@ -13,7 +13,56 @@
                     "basic.to_if_alone_timeout_milliseconds": 1000,
                     "basic.to_if_held_down_threshold_milliseconds": 500
                 },
-                "rules": []
+                "rules": [
+                    {
+                        "description": "Home key to the beginning of the sentence (Command + Left). Doesnt work in terminal",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "home",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "End key to the end of the sentence (Command + Right). Doesnt work in terminal",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "end",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
             },
             "devices": [
                 {
@@ -26,7 +75,7 @@
                         "vendor_id": 1452
                     },
                     "ignore": true,
-                    "manipulate_caps_lock_led": true,
+                    "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 },
                 {
@@ -98,18 +147,18 @@
                         },
                         {
                             "from": {
-                                "key_code": "right_control"
+                                "key_code": "right_command"
                             },
                             "to": {
-                                "key_code": "right_command"
+                                "key_code": "right_control"
                             }
                         },
                         {
                             "from": {
-                                "key_code": "right_command"
+                                "key_code": "right_control"
                             },
                             "to": {
-                                "key_code": "right_control"
+                                "key_code": "right_command"
                             }
                         }
                     ]
