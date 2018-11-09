@@ -14,6 +14,8 @@ Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/matchit.zip'
+Plugin 'chriskempson/base16-vim'
+
 " all Plugins to be added before this line.
 call vundle#end()
 filetype plugin indent on
@@ -83,11 +85,12 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strf
 cnoreabbrev <expr> X (getcmdtype() is# ':' && getcmdline() is# 'X') ? 'x' : 'X'
 cnoreabbrev <expr> Q (getcmdtype() is# ':' && getcmdline() is# 'Q') ? 'q' : 'Q'
 
-"Bash16
+"Base16
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
+colorscheme base16-tomorrow-night
 
 " set to system clipboard
 set clipboard=unnamed
