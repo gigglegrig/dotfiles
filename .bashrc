@@ -7,9 +7,10 @@ fi
 
 # set PS1 with git if possible
 if type __git_ps1 &> /dev/null ; then
-  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\]$(__git_ps1) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
+  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] $(__git_ps1) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
 else
-  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[0m\]\n\$ \[$(tput sgr0)\]'
+  alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/\* //'"
+  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] ($(__git_ps1)) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
 fi
 
 # start ssh-agent

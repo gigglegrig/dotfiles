@@ -14,8 +14,6 @@ Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/matchit.zip'
-
-
 " all Plugins to be added before this line.
 call vundle#end()
 filetype plugin indent on
@@ -77,6 +75,7 @@ set tabstop=4
 set shiftwidth=4
 autocmd FileType sh setlocal shiftwidth=3 tabstop=3
 inoremap <S-Tab> <C-V><Tab>
+
 set ignorecase
 set smartcase
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ %{ALEGetStatusLine()}
