@@ -12,6 +12,17 @@ else
   export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[0m\]\n\$ \[$(tput sgr0)\]'
 fi
 
+# start ssh-agent
+if ! ssh-add -L >& /dev/null; then
+     eval `ssh-agent -s` >& /dev/null
+       ssh-add >& /dev/null
+    fi
+
+# add ssh identity
+if [[ -r ~/.ssh/id_rsa ]]; then
+   ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
+fi
+
 # added by Anaconda2 5.2.0 installer
 export PATH="/Users/frank/anaconda2/bin:$PATH"
 
@@ -29,10 +40,10 @@ function attcon {
 
 set -o vi
 
-bind -x '"\C-l": clear; ls'
-
 alias vi=vim
-
+alias ls='ls --color=always'
 function cdl {
     builtin cd "$@" && ls -F
-    }
+}
+
+export PATH=~/.bin:${PATH}

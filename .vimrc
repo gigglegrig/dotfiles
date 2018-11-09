@@ -13,6 +13,8 @@ Plugin 'sjl/vitality.vim'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/matchit.zip'
+
 
 " all Plugins to be added before this line.
 call vundle#end()
@@ -66,13 +68,15 @@ set number
 syntax on
 set backspace=indent,eol,start
 set hlsearch
-set noexpandtab
+set expandtab
 set gcr=a:blinkon0
 set showmode
-set autoindent
+"set autoindent
 set smartindent
 set tabstop=4
 set shiftwidth=4
+autocmd FileType sh setlocal shiftwidth=3 tabstop=3
+inoremap <S-Tab> <C-V><Tab>
 set ignorecase
 set smartcase
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ %{ALEGetStatusLine()}
@@ -143,4 +147,10 @@ nmap <F7> :ALEToggle<CR>
 " dont run lint on opening a file
 " let g:ale_lint_on_enter = 0
 
+inoremap <C-A> <Home>
+inoremap <C-E> <End>
 
+if has('persistent_undo')      "check if your vim version supports it
+    set undofile                 "turn on the feature  
+    set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
+endif   
