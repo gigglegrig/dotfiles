@@ -20,7 +20,7 @@ fi
 if ! ssh-add -L >& /dev/null; then
      eval `ssh-agent -s` >& /dev/null
        ssh-add >& /dev/null
-    fi
+fi
 
 # add ssh identity
 if [[ -r ~/.ssh/id_rsa ]]; then
@@ -43,11 +43,13 @@ export PATH=~/.bin:${PATH}
 # Aliases #
 ###########
 # enable colors
-ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
-   alias grep="grep --color=always"
+if uname -a | grep -q Darwin; then 
+   alias ls='ls -G'
+else 
+   alias ls='ls --color=always'
+fi 
+
 alias tmux="TERM=xterm-256color tmux"
-
-
 
 function con {
     ssh $1 -t "tmux -CC attach || tmux -CC";
@@ -64,9 +66,8 @@ function attcon {
 set -o vi
 
 alias vi=vim
-alias ls='ls --color=always'
 function cdl {
-    builtin cd "$@" && ls -F
+   builtin cd "$@" && ls -F
 }
 
 export PATH=~/.bin:${PATH}
