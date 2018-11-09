@@ -3,6 +3,9 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
 if type base16_tomorrow-night > /dev/null; then
    base16_tomorrow-night
+else
+   alias base16_tomorrow_night='_base16 "/home/frank/.config/base16-shell/scripts/base16-tomorrow-night.sh" tomorrow-night'
+   base16_tomorrow_night
 fi
 
 # set PS1 with git if possible
