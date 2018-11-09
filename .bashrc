@@ -27,6 +27,25 @@ fi
 # added by Anaconda2 5.2.0 installer
 export PATH="/Users/frank/anaconda2/bin:$PATH"
 
+#############
+# Variables #
+#############
+# make vim default
+export VISUAL=vim
+export EDITOR="$VISUAL"
+export CLICOLOR=1
+export PATH=~/.bin:${PATH}
+
+###########
+# Aliases #
+###########
+# enable colors
+ls --color=auto &> /dev/null && alias ls='ls --color=auto' ||
+   alias grep="grep --color=always"
+alias tmux="TERM=xterm-256color tmux"
+
+
+
 function con {
     ssh $1 -t "tmux -CC attach || tmux -CC";
 }
