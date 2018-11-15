@@ -43,8 +43,6 @@ else
    alias ls='ls --color=always'
 fi 
 
-alias tmux="TERM=xterm-256color tmux"
-
 function con {
     ssh $1 -t "tmux -CC attach || tmux -CC";
 }
@@ -60,8 +58,7 @@ function attcon {
 set -o vi
 
 alias vi=vim
-function cdl {
+function cd {
    builtin cd "$@" && ls -F
 }
 
-export PATH=~/.bin:${PATH}

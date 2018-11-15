@@ -76,7 +76,6 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 autocmd FileType sh setlocal shiftwidth=3 tabstop=3
-inoremap <S-Tab> <C-V><Tab>
 
 set ignorecase
 set smartcase
@@ -91,9 +90,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 colorscheme base16-tomorrow-night
-
-" set to system clipboard
-set clipboard=unnamed
 
 " NERDTree
 nmap <F5> :NERDTreeToggle<cr> 
@@ -151,6 +147,8 @@ nmap <F7> :ALEToggle<CR>
 
 inoremap <C-A> <Home>
 inoremap <C-E> <End>
+inoremap <S-Tab> <C-Q><Tab>
+nnoremap <esc><esc> :noh<return>    "clear highlight by pressing ESC twice
 
 if has('persistent_undo')      "check if your vim version supports it
     set undofile                 "turn on the feature  
