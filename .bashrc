@@ -35,6 +35,8 @@ export PATH=~/.bin:${PATH}
 
 ###########
 # Aliases #
+alias vi=vim
+alias tmux='tmux -2'
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
@@ -57,7 +59,7 @@ function attcon {
 
 set -o vi
 
-alias vi=vim
+
 function cd {
    builtin cd "$@" && ls -F
 }
