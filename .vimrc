@@ -15,7 +15,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'chriskempson/base16-vim'
-
+Plugin 'Yggdroot/indentLine'
 " all Plugins to be added before this line.
 call vundle#end()
 filetype plugin indent on
@@ -76,7 +76,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 autocmd FileType sh setlocal shiftwidth=3 tabstop=3
-
+set ttymouse=sgr " avoid mouse click insertion
 set ignorecase
 set smartcase
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ %{ALEGetStatusLine()}
@@ -85,17 +85,17 @@ cnoreabbrev <expr> X (getcmdtype() is# ':' && getcmdline() is# 'X') ? 'x' : 'X'
 cnoreabbrev <expr> Q (getcmdtype() is# ':' && getcmdline() is# 'Q') ? 'q' : 'Q'
 
 "Base16
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+let base16colorspace=256
 colorscheme base16-tomorrow-night
 
 " NERDTree
 nmap <F5> :NERDTreeToggle<cr> 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
-
+" IndentLine
+nmap <F4> :IndentLinesToggle<CR>
+" Paste Mode
+set pastetoggle=<F3>
 
 " Change cursor shape
 if exists('$TMUX')
@@ -147,8 +147,6 @@ nmap <F7> :ALEToggle<CR>
 
 inoremap <C-A> <Home>
 inoremap <C-E> <End>
-inoremap <S-Tab> <C-Q><Tab>
-nnoremap <esc><esc> :noh<return>    "clear highlight by pressing ESC twice
 
 if has('persistent_undo')      "check if your vim version supports it
     set undofile                 "turn on the feature  
