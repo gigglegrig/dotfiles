@@ -41,9 +41,9 @@ alias tma='tmux attach -t'
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
-   alias ls='ls -G'
+   alias ls='ls -Glatr'
 else 
-   alias ls='ls --color=always'
+   alias ls='ls -lart --color=always'
 fi 
 
 # vanilla tmux
