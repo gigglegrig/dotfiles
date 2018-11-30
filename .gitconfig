@@ -3,3 +3,5 @@
 # Please adapt and uncomment the following lines:
 	name = XiSun
 	email = xi.sun@ibm.com
+[mergetool]
+	keepBackup = false

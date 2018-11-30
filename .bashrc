@@ -4,10 +4,10 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # set PS1 with git if possible
 if type __git_ps1 &> /dev/null ; then
-  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] $(__git_ps1) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
-#else
-#  alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/\* //'"
-#  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] ($(__git_ps1)) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
+   export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] ($(__git_ps1)) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
+else
+  alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/\* //'"
+  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] ($(__git_ps1)) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
 fi
 
 # start ssh-agent
@@ -45,6 +45,16 @@ else
    alias ls='ls --color=always'
 fi 
 
+# vanilla tmux
+function ton {
+   ssh $1 -t "tmux attach || tmux new"
+}
+
+function aon {
+   ssh $1 -t "tmux tmux a -t $2"
+}
+
+# for iTerm2 Tmux integration
 function con {
     ssh $1 -t "tmux -CC attach || tmux -CC";
 }
