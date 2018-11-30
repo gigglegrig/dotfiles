@@ -37,6 +37,7 @@ export PATH=~/.bin:${PATH}
 # Aliases #
 alias vi=vim
 alias tmux='tmux -2'
+alias tma='tmux attach -t'
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
