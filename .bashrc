@@ -41,9 +41,9 @@ alias tma='tmux attach -t'
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
-   alias ls='ls -Glatr'
+   alias ls='ls -Glatr --block-size=M'
 else 
-   alias ls='ls -lart --color=always'
+   alias ls='ls -lart --color=always --block-size=M'
 fi 
 
 # vanilla tmux
