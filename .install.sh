@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Assume you are on centos or redhat
 yum -y install git
 # clone git repo and submodules
 git init
@@ -20,6 +21,10 @@ export PATH=/usr/local/bin:$PATH
 cd ~
 
 # make YouCompleteMe
+yum install -y cmake
 cd ~/.vim/bundle/YouCompleteMe
 python ./install.py --all
 cd ~
+
+source ~/.bashrc
+vim +PluginInstall +qall
