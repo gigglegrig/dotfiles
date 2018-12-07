@@ -3,7 +3,7 @@
 yum -y install git
 # clone git repo and submodules
 git init
-git remote add origin git@github.ibm.com:Xi-Sun/dotfiles.git
+git remote add origin https://github.com/gigglegrig/dotfiles.git
 git fetch
 git checkout -t origin/master -f
 git submodule update --init --recursive
