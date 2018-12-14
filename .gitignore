@@ -9,6 +9,7 @@
 !.gitconfig
 !/.config
 !/.vim/
+/.vim/undo/*
 #!/.vim/*
 #!/.vim/**/*
 .vim/.netrwhist
