@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Assume you are on centos or redhat
-yum -y install git
+sudo yum -y install git
 # clone git repo and submodules
 git init
 git remote add origin https://github.com/gigglegrig/dotfiles.git
@@ -10,7 +10,7 @@ git checkout -t origin/master -f
 git submodule update --init --recursive
 
 # install vim 8
-yum install -y ncurses-devel unzip
+sudo yum install -y ncurses-devel unzip
 wget https://github.com/vim/vim/archive/master.zip
 unzip ./master.zip
 cd vim-master/src/
@@ -21,7 +21,7 @@ export PATH=/usr/local/bin:$PATH
 cd ~
 
 # make YouCompleteMe
-yum install -y cmake
+sudo yum install -y cmake
 cd ~/.vim/bundle/YouCompleteMe
 python ./install.py --all
 cd ~
