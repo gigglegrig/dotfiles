@@ -76,7 +76,7 @@ set showmode
 set smartindent
 set tabstop=4
 set shiftwidth=4
-autocmd FileType sh setlocal shiftwidth=3 tabstop=3
+autocmd FileType sh,bash,groovy,scala,c setlocal shiftwidth=3 tabstop=3
 set ttymouse=sgr " avoid mouse click insertion
 set ignorecase
 set smartcase

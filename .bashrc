@@ -1,6 +1,9 @@
 #Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
+if type base16_tomorrow-night > /dev/null; then
+   base16_tomorrow-night
+fi
 
 # set PS1 with git if possible
 if type __git_ps1 &> /dev/null ; then
@@ -38,6 +41,7 @@ export PATH=~/.bin:${PATH}
 alias vi=vim
 alias tmux='tmux -2'
 alias tma='tmux attach -t'
+alias gitroot='cd $(git rev-parse --show-toplevel)'
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
@@ -68,10 +72,8 @@ function attcon {
     ssh $1 -t "tmux -CC a -t  $2"
 }
 
-set -o vi
-
-
 function cd {
    builtin cd "$@" && ls -F
 }
 
+set -o vi
