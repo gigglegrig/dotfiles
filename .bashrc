@@ -13,6 +13,11 @@ else
   export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] ${__git_ps1} \[\033[0m\]\n\$ \[$(tput sgr0)\]'
 fi
 
+# set git auto completion
+if [ -f ~/git-completion.bash ]; then
+   source ~/git-completion.bash
+fi
+
 # start ssh-agent
 if ! ssh-add -L >& /dev/null; then
      eval `ssh-agent -s` >& /dev/null
