@@ -17,6 +17,8 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'chriskempson/base16-vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-fugitive'
+
 " all Plugins to be added before this line.
 call vundle#end()
 filetype plugin indent on

@@ -52,7 +52,8 @@ alias gitroot='cd $(git rev-parse --show-toplevel)'
 if uname -a | grep -q Darwin; then 
    alias ls='ls -Glatr --block-size=M'
 else 
-   alias ls='ls -lart --color=always --block-size=M'
+#   alias ls='ls -lart --color=always --block-size=M'
+   alias ls='ls -a --color=always'
 fi 
 
 # vanilla tmux
