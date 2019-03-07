@@ -58,7 +58,7 @@ fi
 alias vi=vim
 alias tmux='tmux -2'
 alias tma='tmux attach -t'
-alias gitroot='$(git rev-parse --show-toplevel)'
+alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gitdir='cd ${GITDIR}'
 # vanilla tmux
 function ton {
