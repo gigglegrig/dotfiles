@@ -43,26 +43,30 @@ export PATH=~/.bin:${PATH}
 
 ###########
 # Aliases #
-alias vi=vim
-alias tmux='tmux -2'
-alias tma='tmux attach -t'
-alias gitroot='cd $(git rev-parse --show-toplevel)'
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
    alias ls='ls -Glatr --block-size=M'
+   export GITDIR=~/Desktop/Github
 else 
 #   alias ls='ls -lart --color=always --block-size=M'
    alias ls='ls -a --color=always'
+   export GITDIR=~/Github
 fi 
 
+###########
+alias vi=vim
+alias tmux='tmux -2'
+alias tma='tmux attach -t'
+alias gitroot='$(git rev-parse --show-toplevel)'
+alias gitdir='cd ${GITDIR}'
 # vanilla tmux
 function ton {
    ssh $1 -t "tmux attach || tmux new"
 }
 
 function aon {
-   ssh $1 -t "tmux tmux a -t $2"
+   ssh $1 -t "tmux a -t $2"
 }
 
 # for iTerm2 Tmux integration

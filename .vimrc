@@ -63,6 +63,7 @@ let g:ycm_semantic_triggers =  {
   \   'erlang' : [':'],
   \ }
 ""YCM finished
+set colorcolumn=80 " set 80 char indicator
 set splitbelow
 set nocompatible
 set mouse=a
