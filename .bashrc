@@ -46,12 +46,15 @@ export PATH=~/.bin:${PATH}
 ###########
 # enable colors
 if uname -a | grep -q Darwin; then 
-   alias ls='ls -Glatr --block-size=M'
+   #alias ls='ls -Glatr --block-size=M'
+   alias ls='ls -Ga'
    export GITDIR=~/Desktop/Github
+   export NOVADIR=$GITDIR/nova-deployment
 else 
 #   alias ls='ls -lart --color=always --block-size=M'
    alias ls='ls -a --color=always'
    export GITDIR=~/Github
+   export NOVADIR=$GITDIR/nova-deployment
 fi 
 
 ###########
@@ -60,6 +63,7 @@ alias tmux='tmux -2'
 alias tma='tmux attach -t'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gitdir='cd ${GITDIR}'
+alias novadir='cd ${NOVADIR}'
 # vanilla tmux
 function ton {
    ssh $1 -t "tmux attach || tmux new"
