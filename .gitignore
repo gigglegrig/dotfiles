@@ -1,4 +1,5 @@
 /*
+!.gitmodules
 !.tmux.conf
 !.install.sh
 !.gitignore
@@ -8,7 +9,9 @@
 !.bash_profile
 .gitconfig
 !/.config
-!/.vim/
+/.config/karabiner/*
+!/.vim
+!/.vim/bundle/**
 /.vim/undo/*
 #!/.vim/*
 #!/.vim/**/*
