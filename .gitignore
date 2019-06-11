@@ -6,7 +6,7 @@
 !.bashrc
 !.bash_login
 !.bash_profile
-!.gitconfig
+.gitconfig
 !/.config
 !/.vim/
 /.vim/undo/*
