@@ -64,6 +64,7 @@ alias tma='tmux attach -t'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gitdir='cd ${GITDIR}'
 alias novadir='cd ${NOVADIR}'
+alias gitlog='git log --name-only'
 # vanilla tmux
 function ton {
    ssh $1 -t "tmux attach || tmux new"
