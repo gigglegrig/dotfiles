@@ -11,4 +11,4 @@
 	process = git-lfs filter-process
 	required = true
 [core]
-	excludesfile = /Users/frank/.gitignore_global
+	excludesfile = /home/frank/.gitignore_global

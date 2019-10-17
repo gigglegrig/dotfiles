@@ -40,7 +40,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export CLICOLOR=1
 export PATH=~/.bin:${PATH}
-
+export TERM=xterm-256color
 ###########
 # Aliases #
 ###########
