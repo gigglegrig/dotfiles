@@ -12,3 +12,5 @@
 	required = true
 [core]
 	excludesfile = /home/frank/.gitignore_global
+[url "ssh://git@github.ibm.com/"]
+	insteadOf = https://github.ibm.com/

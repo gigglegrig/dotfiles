@@ -39,7 +39,7 @@ export PATH="/Users/frank/anaconda2/bin:$PATH"
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export CLICOLOR=1
-export PATH=~/.bin:${PATH}
+export PATH=~/.bin:${PATH}:/usr/local/go/bin
 export TERM=xterm-256color
 ###########
 # Aliases #
