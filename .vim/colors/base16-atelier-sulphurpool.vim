@@ -2,7 +2,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" Tomorrow Night scheme by Chris Kempson (http://chriskempson.com)
+" Atelier Sulphurpool scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -10,43 +10,43 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has("gui_running")
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-tomorrow-night.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-atelier-sulphurpool.sh"
   endif
 endif
 
 " GUI color definitions
-let s:gui00        = "1d1f21"
-let g:base16_gui00 = "1d1f21"
-let s:gui01        = "282a2e"
-let g:base16_gui01 = "282a2e"
-let s:gui02        = "373b41"
-let g:base16_gui02 = "373b41"
-let s:gui03        = "969896"
-let g:base16_gui03 = "969896"
-let s:gui04        = "b4b7b4"
-let g:base16_gui04 = "b4b7b4"
-let s:gui05        = "c5c8c6"
-let g:base16_gui05 = "c5c8c6"
-let s:gui06        = "e0e0e0"
-let g:base16_gui06 = "e0e0e0"
-let s:gui07        = "ffffff"
-let g:base16_gui07 = "ffffff"
-let s:gui08        = "cc6666"
-let g:base16_gui08 = "cc6666"
-let s:gui09        = "de935f"
-let g:base16_gui09 = "de935f"
-let s:gui0A        = "f0c674"
-let g:base16_gui0A = "f0c674"
-let s:gui0B        = "b5bd68"
-let g:base16_gui0B = "b5bd68"
-let s:gui0C        = "8abeb7"
-let g:base16_gui0C = "8abeb7"
-let s:gui0D        = "81a2be"
-let g:base16_gui0D = "81a2be"
-let s:gui0E        = "b294bb"
-let g:base16_gui0E = "b294bb"
-let s:gui0F        = "a3685a"
-let g:base16_gui0F = "a3685a"
+let s:gui00        = "202746"
+let g:base16_gui00 = "202746"
+let s:gui01        = "293256"
+let g:base16_gui01 = "293256"
+let s:gui02        = "5e6687"
+let g:base16_gui02 = "5e6687"
+let s:gui03        = "6b7394"
+let g:base16_gui03 = "6b7394"
+let s:gui04        = "898ea4"
+let g:base16_gui04 = "898ea4"
+let s:gui05        = "979db4"
+let g:base16_gui05 = "979db4"
+let s:gui06        = "dfe2f1"
+let g:base16_gui06 = "dfe2f1"
+let s:gui07        = "f5f7ff"
+let g:base16_gui07 = "f5f7ff"
+let s:gui08        = "c94922"
+let g:base16_gui08 = "c94922"
+let s:gui09        = "c76b29"
+let g:base16_gui09 = "c76b29"
+let s:gui0A        = "c08b30"
+let g:base16_gui0A = "c08b30"
+let s:gui0B        = "ac9739"
+let g:base16_gui0B = "ac9739"
+let s:gui0C        = "22a2c9"
+let g:base16_gui0C = "22a2c9"
+let s:gui0D        = "3d8fd1"
+let g:base16_gui0D = "3d8fd1"
+let s:gui0E        = "6679cc"
+let g:base16_gui0E = "6679cc"
+let s:gui0F        = "9c637a"
+let g:base16_gui0F = "9c637a"
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -99,22 +99,22 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#1d1f21"
-  let g:terminal_color_1 =  "#cc6666"
-  let g:terminal_color_2 =  "#b5bd68"
-  let g:terminal_color_3 =  "#f0c674"
-  let g:terminal_color_4 =  "#81a2be"
-  let g:terminal_color_5 =  "#b294bb"
-  let g:terminal_color_6 =  "#8abeb7"
-  let g:terminal_color_7 =  "#c5c8c6"
-  let g:terminal_color_8 =  "#969896"
-  let g:terminal_color_9 =  "#cc6666"
-  let g:terminal_color_10 = "#b5bd68"
-  let g:terminal_color_11 = "#f0c674"
-  let g:terminal_color_12 = "#81a2be"
-  let g:terminal_color_13 = "#b294bb"
-  let g:terminal_color_14 = "#8abeb7"
-  let g:terminal_color_15 = "#ffffff"
+  let g:terminal_color_0 =  "#202746"
+  let g:terminal_color_1 =  "#c94922"
+  let g:terminal_color_2 =  "#ac9739"
+  let g:terminal_color_3 =  "#c08b30"
+  let g:terminal_color_4 =  "#3d8fd1"
+  let g:terminal_color_5 =  "#6679cc"
+  let g:terminal_color_6 =  "#22a2c9"
+  let g:terminal_color_7 =  "#979db4"
+  let g:terminal_color_8 =  "#6b7394"
+  let g:terminal_color_9 =  "#c94922"
+  let g:terminal_color_10 = "#ac9739"
+  let g:terminal_color_11 = "#c08b30"
+  let g:terminal_color_12 = "#3d8fd1"
+  let g:terminal_color_13 = "#6679cc"
+  let g:terminal_color_14 = "#22a2c9"
+  let g:terminal_color_15 = "#f5f7ff"
   let g:terminal_color_background = g:terminal_color_0
   let g:terminal_color_foreground = g:terminal_color_5
   if &background == "light"
@@ -123,29 +123,29 @@ if has("nvim")
   endif
 elseif has("terminal")
   let g:terminal_ansi_colors = [
-        \ "#1d1f21",
-        \ "#cc6666",
-        \ "#b5bd68",
-        \ "#f0c674",
-        \ "#81a2be",
-        \ "#b294bb",
-        \ "#8abeb7",
-        \ "#c5c8c6",
-        \ "#969896",
-        \ "#cc6666",
-        \ "#b5bd68",
-        \ "#f0c674",
-        \ "#81a2be",
-        \ "#b294bb",
-        \ "#8abeb7",
-        \ "#ffffff",
+        \ "#202746",
+        \ "#c94922",
+        \ "#ac9739",
+        \ "#c08b30",
+        \ "#3d8fd1",
+        \ "#6679cc",
+        \ "#22a2c9",
+        \ "#979db4",
+        \ "#6b7394",
+        \ "#c94922",
+        \ "#ac9739",
+        \ "#c08b30",
+        \ "#3d8fd1",
+        \ "#6679cc",
+        \ "#22a2c9",
+        \ "#f5f7ff",
         \ ]
 endif
 
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-tomorrow-night"
+let g:colors_name = "base16-atelier-sulphurpool"
 
 " Highlighting function
 " Optional variables are attributes and guisp
