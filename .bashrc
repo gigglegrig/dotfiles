@@ -36,6 +36,7 @@ export PATH="/Users/frank/anaconda2/bin:$PATH"
 # Variables #
 #############
 # make vim default
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export CLICOLOR=1
