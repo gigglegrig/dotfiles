@@ -20,11 +20,6 @@ sudo make install
 export PATH=/usr/local/bin:$PATH
 cd ~
 
-# make YouCompleteMe
-sudo yum install -y cmake
-cd ~/.vim/bundle/YouCompleteMe
-python ./install.py --all
-cd ~
 
 source ~/.bashrc
 vim +PluginInstall +qall
