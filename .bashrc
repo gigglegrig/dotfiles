@@ -1,3 +1,4 @@
+#!/bin/bash -x
 #Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
@@ -41,6 +42,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export CLICOLOR=1
 export PATH=~/.bin:${PATH}:/usr/local/go/bin
+export PATH="/usr/local/bin:$PATH"
 export TERM=xterm-256color
 ###########
 # Aliases #
@@ -93,3 +95,8 @@ function cd {
 }
 
 set -o vi
+
+# load dev, but only if present and the shell is interactive
+if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
+  source /opt/dev/dev.sh
+fi
