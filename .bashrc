@@ -44,6 +44,8 @@ export CLICOLOR=1
 export PATH=~/.bin:${PATH}:/usr/local/go/bin
 export PATH="/usr/local/bin:$PATH"
 export TERM=xterm-256color
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 ###########
 # Aliases #
 ###########
