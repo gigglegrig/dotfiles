@@ -8,8 +8,8 @@
 !.bash_login
 !.bash_profile
 .gitconfig
-!/.config
-/.config/karabiner/*
+/.config
+!/.config/karabiner/*
 !/.vim
 !/.vim/bundle/**
 /.vim/undo/*
