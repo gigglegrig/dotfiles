@@ -53,7 +53,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 if uname -a | grep -q Darwin; then 
    #alias ls='ls -Glatr --block-size=M'
    alias ls='ls -Ga'
-   export GITDIR=~/Desktop/Github
+   export GITDIR=/Users/frank/src/github.com/Shopify
    export NOVADIR=$GITDIR/nova-deployment
 else 
 #   alias ls='ls -lart --color=always --block-size=M'
