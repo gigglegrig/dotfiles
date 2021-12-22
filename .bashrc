@@ -106,7 +106,3 @@ if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
   source /opt/dev/dev.sh
 fi
 
-# cloudplatform: add Shopify clusters to your local kubernetes config
-export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/frank/.kube/config:/Users/frank/.kube/config.shopify.cloudplatform
-for file in /Users/frank/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
-kubectl-short-aliases
