@@ -2,19 +2,19 @@
 #Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
-if type base16_tomorrow-night > /dev/null; then
-   base16_tomorrow-night
-fi
+#if type base16_tomorrow-night > /dev/null; then
+#   base16_tomorrow-night
+#fi
 
 source ~/git-completion.bash
 source ~/git-prompt.sh
 
 # set PS1 with git if possible
 if type __git_ps1 &> /dev/null ; then
-   export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] $(__git_ps1) \[\033[0m\]\n\$ \[$(tput sgr0)\]'
+   export PS1='\[\033[32m\][\D{%H:%M:%S}] \u@\h \[\033[33m\]\w\[\033[36m\]$(__git_ps1)\[\033[0m\]\n\$ \[$(tput sgr0)\]'
 else
   alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/\* //'"
-  export PS1='\[\033[32m\]\u@\h \[\033[33m\]\w\[\033[36m\] ${__git_ps1} \[\033[0m\]\n\$ \[$(tput sgr0)\]'
+  export PS1='\[\033[32m\][\D{%H:%M:%S}] \u@\h \[\033[33m\]\w\[\033[36m\] ${__git_ps1} \[\033[0m\]\n\$ \[$(tput sgr0)\]'
 fi
 
 # set git auto completion
@@ -48,6 +48,7 @@ export PATH=~/.bin:${PATH}:/usr/local/go/bin
 export PATH="/usr/local/bin:$PATH"
 export TERM=xterm-256color
 # Add Visual Studio Code (code)
+export GEM_HOME="$HOME/.gem"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 ###########
 # Aliases #
@@ -67,12 +68,28 @@ fi
 
 ###########
 alias vi=vim
+alias typora="open -a typora"
 alias tmux='tmux -2'
 alias tma='tmux attach -t'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
 alias gitdir='cd ${GITDIR}'
 alias novadir='cd ${NOVADIR}'
 alias gitlog='git log --name-only'
+alias k='kubectl';
+alias kbn='browse-nodes';
+alias kbp='browse-running-pods';
+alias kdesc='k describe $(k get pods -o name | fzf)';
+alias kex='exec-with-bash-if-available $(list-running-containers-by-pod | fzf)';
+alias kg='k get';
+alias kgn='k get namespaces';
+alias kgp='k get pods';
+alias kgpn='k get pods -o custom-columns=NAME:.metadata.name --no-headers';
+alias kl='list-running-containers-by-pod | fzf --preview "kubectl logs {1} {2}" --height=100%';
+alias kx='exec-pod';
+alias rdst1c1='k --context "redis-tier1-us-central1-1" --namespace shopify-core';
+alias rdst1e1='k --context "redis-tier1-us-east1-1" --namespace shopify-core'
+alias t1ne13='k --context "tier1-na-ne1-3"';
+
 # vanilla tmux
 function ton {
    ssh $1 -t "tmux attach || tmux new"
@@ -106,3 +123,19 @@ if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
   source /opt/dev/dev.sh
 fi
 
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+# bash completion
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/xisun/.kube/config:/Users/xisun/.kube/config.shopify.cloudplatform
+for file in /Users/xisun/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
