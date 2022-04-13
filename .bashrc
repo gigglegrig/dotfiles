@@ -1,55 +1,16 @@
-#!/bin/bash -x
-#Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
-#if type base16_tomorrow-night > /dev/null; then
-#   base16_tomorrow-night
-#fi
-
-source ~/git-completion.bash
-source ~/git-prompt.sh
-
-# set PS1 with git if possible
-if type __git_ps1 &> /dev/null ; then
-   export PS1='\[\033[32m\][\D{%H:%M:%S}] \u@\h \[\033[33m\]\w\[\033[36m\]$(__git_ps1)\[\033[0m\]\n\$ \[$(tput sgr0)\]'
-else
-  alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/\* //'"
-  export PS1='\[\033[32m\][\D{%H:%M:%S}] \u@\h \[\033[33m\]\w\[\033[36m\] ${__git_ps1} \[\033[0m\]\n\$ \[$(tput sgr0)\]'
-fi
-
-# set git auto completion
-if [ -f ~/git-completion.bash ]; then
-   source ~/git-completion.bash
-fi
-
-# start ssh-agent
-if ! ssh-add -L >& /dev/null; then
-     eval `ssh-agent -s` >& /dev/null
-       ssh-add >& /dev/null
-fi
-
-# add ssh identity
-if [[ -r ~/.ssh/id_rsa ]]; then
-   ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
-fi
-
-# added by Anaconda2 5.2.0 installer
-export PATH="/Users/frank/anaconda2/bin:$PATH"
-
 #############
 # Variables #
 #############
 # make vim default
-export BASH_SILENCE_DEPRECATION_WARNING=1
-export VISUAL=vim
-export EDITOR="$VISUAL"
-export CLICOLOR=1
-export PATH=~/.bin:${PATH}:/usr/local/go/bin
-export PATH="/usr/local/bin:$PATH"
-export TERM=xterm-256color
+set -x BASH_SILENCE_DEPRECATION_WARNING 1
+set -x VISUAL vim
+set -x EDITOR "$VISUAL"
+set -x CLICOLOR 1
 # Add Visual Studio Code (code)
-export GEM_HOME="$HOME/.gem"
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+set -U fish_user_paths $fish_user_paths /usr/local/go/bin /usr/local/bin \
+$HOME/.rvm/bin /Applications/Visual Studio Code.app/Contents/Resources/app/bin$HOME/.gem
+
+
 ###########
 # Aliases #
 ###########
@@ -57,13 +18,13 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 if uname -a | grep -q Darwin; then 
    #alias ls='ls -Glatr --block-size=M'
    alias ls='ls -Ga'
-   export GITDIR=/Users/frank/src/github.com/Shopify
-   export NOVADIR=$GITDIR/nova-deployment
+   set -x GITDIR /Users/frank/src/github.com/Shopify
+   set -x NOVADIR $GITDIR/nova-deployment
 else 
 #   alias ls='ls -lart --color=always --block-size=M'
    alias ls='ls -a --color=always'
-   export GITDIR=~/Github
-   export NOVADIR=$GITDIR/nova-deployment
+   set -x GITDIR ~/Github
+   set -x NOVADIR $GITDIR/nova-deployment
 fi 
 
 ###########
@@ -126,16 +87,10 @@ fi
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 # bash completion
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+set -x BASH_COMPLETION_COMPAT_DIR "/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
 # cloudplatform: add Shopify clusters to your local kubernetes config
-export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/xisun/.kube/config:/Users/xisun/.kube/config.shopify.cloudplatform
-for file in /Users/xisun/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
-source <(kubectl completion bash)
-alias k=kubectl
-complete -F __start_kubectl k
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+set -x KUBECONFIG ${KUBECONFIG:+$KUBECONFIG:}/Users/xisun/.kube/config:/Users/xisun/.kube/config.shopify.cloudplatform
+kubectl completion fish | source
