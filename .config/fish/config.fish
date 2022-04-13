@@ -4,6 +4,11 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
+function code
+  set location "$PWD/$argv"
+  open -n -b "com.microsoft.VSCode" --args $location
+end
+
 #############
 # Variables #
 #############
@@ -31,8 +36,8 @@ alias typora="open -a typora"
 alias tmux='tmux -2'
 alias tma='tmux attach -t'
 alias gitroot='cd $(git rev-parse --show-toplevel)'
-alias gitdir='cd {GITDIR}'
-alias novadir='cd {NOVADIR}'
+alias gitdir='cd $GITDIR'
+alias novadir='cd $NOVADIR'
 alias gitlog='git log --name-only'
 alias k='kubectl';
 alias kbn='browse-nodes';
