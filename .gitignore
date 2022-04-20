@@ -10,6 +10,9 @@
 .gitconfig
 /.config
 !/.config/karabiner/*
+!/.config/iterm2/*
+!/.config/fish/*
+!/.config/base16-shell/*
 !/.vim
 !/.vim/bundle/**
 /.vim/undo/*
