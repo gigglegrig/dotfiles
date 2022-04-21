@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "kubectl --context <context> -n <namespace> port-forward deployment\/cruise-control 9090\n\n",
+    "uid" : "E0846DAB-3169-40EF-9D4F-2D787B44D59E",
+    "name" : "port forward",
+    "keyword" : ""
+  }
+}

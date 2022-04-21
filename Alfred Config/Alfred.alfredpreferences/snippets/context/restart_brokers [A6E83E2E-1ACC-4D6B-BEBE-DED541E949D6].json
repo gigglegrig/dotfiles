@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : ".\/restart_brokers.rb -n kafka -a -e -v -c",
+    "uid" : "A6E83E2E-1ACC-4D6B-BEBE-DED541E949D6",
+    "name" : "restart_brokers",
+    "keyword" : ""
+  }
+}

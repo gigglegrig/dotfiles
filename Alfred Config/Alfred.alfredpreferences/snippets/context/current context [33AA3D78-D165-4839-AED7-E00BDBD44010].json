@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "kubectl config current-context",
+    "uid" : "33AA3D78-D165-4839-AED7-E00BDBD44010",
+    "name" : "current context",
+    "keyword" : ""
+  }
+}
