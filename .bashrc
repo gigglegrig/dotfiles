@@ -130,9 +130,6 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
-# cloudplatform: add Shopify clusters to your local kubernetes config
-export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/xisun/.kube/config:/Users/xisun/.kube/config.shopify.cloudplatform
-for file in /Users/xisun/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
 source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k

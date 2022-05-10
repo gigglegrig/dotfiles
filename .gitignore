@@ -21,3 +21,4 @@
 .vim/.netrwhist
 !.vimrc_background
 !.gitignore_global
+!Alfred*
