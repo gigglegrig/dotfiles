@@ -31,4 +31,4 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/usr/local/go/bin\x1e/usr/local/bin\x1e/Users/xisun/\x2ervm/bin\x1e/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/Resources/app/bin/Users/xisun/\x2egem\x1e/Users/franksun/\x2ervm/bin\x1eCode\x2eapp/Contents/Resources/app/bin/Users/franksun/\x2egem
+SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/opt/homebrew/opt/mongodb\x2dcommunity\x404\x2e2/bin\x1e/Users/franksun/stripe/henson/bin\x1e/Users/franksun/stripe/space\x2dcommander/bin\x1e/Users/franksun/stripe/password\x2dvault/bin\x1e/Users/franksun/\x2erbenv/bin\x1e/Users/franksun/\x2erbenv/shims\x1e/usr/local/go/bin\x1e/usr/local/bin\x1e/Users/xisun/\x2ervm/bin\x1e/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/Resources/app/bin/Users/xisun/\x2egem\x1e/Users/franksun/\x2ervm/bin\x1eCode\x2eapp/Contents/Resources/app/bin/Users/franksun/\x2egem\x1e/opt/homebrew/bin/kubectl\x1e/opt/homebrew/bin/

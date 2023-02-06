@@ -11,6 +11,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sheerun/vim-polyglot'
 
 
 " All of your Plugins must be added before the following line

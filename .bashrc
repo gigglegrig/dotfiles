@@ -44,12 +44,13 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export CLICOLOR=1
-export PATH=~/.bin:${PATH}:/usr/local/go/bin
+export PATH=~/.bin:${PATH}:/usr/local/go/bin:/opt/homebrew/bin/
 export PATH="/usr/local/bin:$PATH"
 export TERM=xterm-256color
 # Add Visual Studio Code (code)
 export GEM_HOME="$HOME/.gem"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+unset GOROOT
 ###########
 # Aliases #
 ###########
@@ -57,7 +58,7 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 if uname -a | grep -q Darwin; then 
    #alias ls='ls -Glatr --block-size=M'
    alias ls='ls -Ga'
-   export GITDIR=/Users/frank/src/github.com/Shopify
+   export GITDIR=/Users/franksun/stripe
    export NOVADIR=$GITDIR/nova-deployment
 else 
 #   alias ls='ls -lart --color=always --block-size=M'
@@ -123,8 +124,6 @@ if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
   source /opt/dev/dev.sh
 fi
 
-
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 # bash completion
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
@@ -136,3 +135,32 @@ complete -F __start_kubectl k
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+source /Users/franksun/.stripe/shellinit/*
+### BEGIN STRIPE
+# All Stripe related shell configuration
+# is at ~/.stripe/shellinit/bash_profile and is
+# persistently managed by Chef. You shouldn't
+# remove this unless you don't want to load
+# Stripe specific shell configurations.
+#
+# Feel free to add your customizations in this
+# file (~/.bash_profile) after the Stripe config
+# is sourced.
+source ~/.stripe/shellinit/bash_profile
+### END STRIPE
+### BEGIN HENSON
+export PATH="/Users/nroman/stripe/henson/bin:$PATH"
+### END HENSON
+complete -C /Users/$USER/stripe/space-commander/bin/commands/sc-complete sc
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# START - Managed by chef cookbook stripe_cpe_bin
+alias tc='/usr/local/stripe/bin/test_cookbook'
+alias cz='/usr/local/stripe/bin/chef-zero'
+alias cookit='tc && cz'
+alias aws='sc-aws'
+source ~/stripe/space-commander/bin/sc-aliases
+
+# STOP - Managed by chef cookbook
+complete -C /Users/franksun/stripe/space-commander/bin/commands/sc-complete _sc
+for cmd in "${HOME}"/stripe/space-commander/bin/*; do complete -C "${HOME}"/stripe/space-commander/bin/commands/sc-complete "$(basename "$cmd")"; done
