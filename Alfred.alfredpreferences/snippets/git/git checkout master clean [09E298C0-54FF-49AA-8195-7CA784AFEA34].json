@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "git checkout master && git reset --hard origin\/master &&  git pull && git clean -fdx",
+    "uid" : "09E298C0-54FF-49AA-8195-7CA784AFEA34",
+    "name" : "git checkout master & clean",
+    "keyword" : ""
+  }
+}

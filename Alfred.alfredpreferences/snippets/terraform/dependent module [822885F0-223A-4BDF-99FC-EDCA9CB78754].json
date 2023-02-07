@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "sc terraform dependent-modules --root-modules-only",
+    "uid" : "822885F0-223A-4BDF-99FC-EDCA9CB78754",
+    "name" : "dependent module",
+    "keyword" : "terraform"
+  }
+}
